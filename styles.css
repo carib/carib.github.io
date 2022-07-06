@@ -28,6 +28,7 @@ body {
 
 .btn_cube {
     --size: 5rem;
+    appearance: none;
     position: relative;
     width: var(--size);
     margin: 0 auto;
