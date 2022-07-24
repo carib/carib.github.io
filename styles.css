@@ -4,13 +4,17 @@ body {
   grid-template-rows: 20vh auto 20vh;
   font-family: sans-serif;
   height: 100vh;
-  width: 100vh;
+  width: 100vw;
   margin: 0;
   padding: 0;
 }
 
 .header, footer {
   padding: 1rem;
+}
+
+h1 {
+  font-size: clamp(1rem, 4vw, 4rem);
 }
 
 .main {
@@ -26,61 +30,215 @@ body {
   align-items: flex-end;
 }
 
-.btn_cube {
-    --size: 5rem;
-    appearance: none;
-    position: relative;
-    width: var(--size);
-    margin: 0 auto;
-    transform-style: preserve-3d;
-    border: 1px solid black;
-    background: #fff;
-    transform: rotateX(40deg) rotatez(26deg);
-    height: var(--size);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    transition: transform .1s ease-in-out;
-    font-size: 22px;
-  }
-  
-  .btn_cube:active {
-    transform: rotateX(40deg) rotatez(26deg) translateZ(-5rem);
-    transition: transform 0.2s;
-  }
-  
-  .btn_cube::before,
-  .btn_cube::after {
-    content: '';
-    position: absolute;
-    width: var(--size);
-    height: var(--size);
-    transform-origin: -2% -2%;
-    border: 1px solid black;
-    transition: all .1s ease-in-out;
+/* ****************************************************************** BUTTON */
+button {
+  cursor: pointer;
+  overflow-wrap: break-word;
+  animation: button-text-color 2s infinite linear alternate;
+}
 
+button:active {
+  color: #ff0000;
+}
+
+/* ****************************************************************** COUNTDOWN */
+.countdown_div {
+  font-family: 'Autour One';
+  height: 100vh;
+  width: 100vw;
+  font-size: 100vh;
+  position: absolute;
+  top: -12vh;
+  left: 2vh;
+  text-align: center;
+  z-index: -2;
+  opacity: 0;
+  transform: skew(329deg, 30deg);
+  transition: opacity .2s ease-in-out;
+}
+
+.countdown_div::after {
+  content: '';
+  color: #ff0000;
+}
+
+.countdown {
+  opacity: .4;
+  transition: opacity .5s ease-in;
+  z-index: 2;
+}
+
+.countdown::after {
+  content: '5';
+  animation: countdown 5s linear;
+}
+
+/* ****************************************************************************** SWITCH CLASSES */
+/* ****************************************************************** CUBE */
+.btn_cube {
+  --size: 5rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: relative;
+  width: var(--size);
+  margin: 0 auto;
+  transform-style: preserve-3d;
+  border: 1px solid black;
+  background: #fff;
+  transform: rotateX(40deg) rotatez(26deg);
+  -webkit-transform: rotateX(40deg) rotatez(26deg);
+  height: var(--size);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform .1s ease-in-out;
+  
+  font-family: 'Press Start 2P'; 
+  font-size: 22px;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+.btn_cube:active {
+  transform: rotateX(40deg) rotatez(26deg) translateZ(-5rem);
+  -webkit-transform: rotateX(40deg) rotatez(26deg) translateZ(-5rem);
+  transition: transform 0.2s;
+  transition: -webkit-transform 0.2s;
+}
+
+.btn_cube::before,
+.btn_cube::after {
+  content: '';
+  position: absolute;
+  width: var(--size);
+  height: var(--size);
+  transform-origin: -2% -2%;
+  border: 1px solid black;
+  transition: all .1s ease-in-out;
+  
 }
 
 .btn_cube::before {
   top: 100%;
   left: -3%;
   transform: rotateX(-90deg);
+  -webkit-transform: rotateX(-90deg);
 }
 
 .btn_cube::after {
-    top: -3%;
-    left: 102%;
-    border-bottom: none;
-    transform: rotateY(90deg);
+  top: -3%;
+  left: 102%;
+  border-bottom: none;
+  transform: rotateY(90deg);
+  -webkit-transform: rotateY(90deg);
 }
 
 .btn_cube:active::before {
-    height: 0;
-    transition: height .2s;
+  height: 0;
+  transition: height .2s;
 }
 
 .btn_cube:active::after {
-    width: 0;
-    transition: width .2s;
+  width: 0;
+  transition: width .2s;
+}
+
+/* ****************************************************************** CLOUD */
+.btn_cloud {
+  font-family: 'Monoton';
+  font-size: 5rem;
+  
+  position: relative;
+  width: 15rem;
+  height: 15rem;
+  background: #fff;
+  margin: auto;
+  border: none;
+  border-radius: 1rem;
+  border-bottom: 1px solid #f4f4f4;
+  border-right: none;
+  box-shadow: 0px 6px 33px -13px #949393, inset 4px -2px 20px -13px #949393;
+  animation: shadow-up 2s ease-in-out, button-text-color 2s infinite linear alternate;
+  animation-delay: .4s;
+  transition: all .2s ease;
+}
+
+.btn_cloud::before,
+.btn_cloud::after {
+  content: '';
+  position: absolute;
+  height: calc(100% - 1rem);
+  width: 100%;
+  border-radius: 1rem;
+  animation: draw-up 2s ease;
+  animation-delay: .5s;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.btn_cloud::before {
+  bottom: 0;
+  left: 0;
+  border-left: 1px solid #f4f4f4;
+  border-right: 1px solid #f4f4f4;
+}
+
+.btn_cloud:active {
+  border-top: 1px solid #f4f4f4;
+  border-radius: 1rem;
+  box-shadow: none;
+  transition: all .4s ease;
+}
+
+/* ****************************************************************** ANIMATIONS */
+@keyframes draw-up {
+  from {
+    height: 0;
+    opacity: 0;
+  }
+  to {
+    height: calc(100% - 1rem);
+    opacity: 1;
+  }
+}
+
+@keyframes shadow-up {
+  from {
+    box-shadow: -28px 30px 54px -59px #949393;
+  }
+  to {
+    box-shadow: 0px 6px 33px -13px #949393, inset 4px -2px 20px -13px #949393;
+  }
+}
+
+@keyframes button-text-color {
+  from {
+    color: #ff0000;
+  }
+  to {
+    color: #fffbfb;
+  }
+}
+
+@keyframes countdown {
+  0% {
+    content: '5';
+  }
+
+  25% {
+    content: '4';
+  }
+  
+  50% {
+    content: '3';
+  }
+  
+  75% {
+    content: '2';
+  }
+  
+  100% {
+    content: '1';
+  }
 }
