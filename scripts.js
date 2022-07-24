@@ -1,13 +1,15 @@
-const switchClass = () => {
-    const countdown = document.querySelector('.countdown_div');
-    const btn = document.querySelector('button');
-    const btnClassesQueue = ['cube', 'cloud'];
-    
-    countdown.classList.toggle('countdown');
+const countdowns = Array.from(document.querySelectorAll('.countdown_div'));
+const btn = document.querySelector('button');
+const btnClassesQueue = ['cube', 'cloud'];
+
+const switchClass = () => {    
+    countdowns.map(countdown => countdown.classList.toggle('countdown'));
+    btn.classList.toggle('no_click');
     
     setTimeout(() => {
-        countdown.classList.toggle('countdown');
+        countdowns.map(countdown => countdown.classList.toggle('countdown'));
         
+        btn.classList.toggle('no_click');
         btnClassesQueue.push(btnClassesQueue.shift());
         btn.classList.toggle(`btn_${btnClassesQueue[0]}`);
         
@@ -18,3 +20,5 @@ const switchClass = () => {
         }
     }, 5000);
 }
+
+btn.addEventListener('mouseup', switchClass);

@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   display: grid;
   grid-template-columns: 100vw;
@@ -11,6 +15,7 @@ body {
 
 .header, footer {
   padding: 1rem;
+  position: relative;
 }
 
 h1 {
@@ -37,40 +42,51 @@ button {
   animation: button-text-color 2s infinite linear alternate;
 }
 
+button.no_click {
+  pointer-events: none;
+}
+
 button:active {
   color: #ff0000;
+  animation: none;
 }
 
 /* ****************************************************************** COUNTDOWN */
-.countdown_div {
+.header .countdown_div, 
+.footer .countdown_div {
   font-family: 'Autour One';
-  height: 100vh;
-  width: 100vw;
-  font-size: 100vh;
+  font-size: 9vh;
   position: absolute;
-  top: -12vh;
-  left: 2vh;
   text-align: center;
   z-index: -2;
-  opacity: 0;
-  transform: skew(329deg, 30deg);
   transition: opacity .2s ease-in-out;
 }
+.header .countdown_div {
+  top: 2vh;
+  right: 2vh;
+}
+
+.footer .countdown_div {
+  bottom: 2vh;
+  left: 2vh;
+}
+
 
 .countdown_div::after {
   content: '';
+  opacity: .2;
+  transition: opacity .5s ease-in;
   color: #ff0000;
 }
 
 .countdown {
-  opacity: .4;
-  transition: opacity .5s ease-in;
   z-index: 2;
 }
 
 .countdown::after {
   content: '5';
   animation: countdown 5s linear;
+  animation-delay: .5s;
 }
 
 /* ****************************************************************************** SWITCH CLASSES */
@@ -154,13 +170,12 @@ button:active {
   height: 15rem;
   background: #fff;
   margin: auto;
-  border: none;
+  border: 1px solid #f4f4f4;
   border-radius: 1rem;
   border-bottom: 1px solid #f4f4f4;
-  border-right: none;
   box-shadow: 0px 6px 33px -13px #949393, inset 4px -2px 20px -13px #949393;
   animation: shadow-up 2s ease-in-out, button-text-color 2s infinite linear alternate;
-  animation-delay: .4s;
+  animation-delay: 0, .4s;
   transition: all .2s ease;
 }
 
@@ -168,20 +183,19 @@ button:active {
 .btn_cloud::after {
   content: '';
   position: absolute;
-  height: calc(100% - 1rem);
+  top: 0;
+  left: 0;
+  height: 100%;
   width: 100%;
   border-radius: 1rem;
-  animation: draw-up 2s ease;
   animation-delay: .5s;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
+  /* border-top-left-radius: 0;
+  border-top-right-radius: 0; */
 }
 
 .btn_cloud::before {
   bottom: 0;
   left: 0;
-  border-left: 1px solid #f4f4f4;
-  border-right: 1px solid #f4f4f4;
 }
 
 .btn_cloud:active {
@@ -189,6 +203,7 @@ button:active {
   border-radius: 1rem;
   box-shadow: none;
   transition: all .4s ease;
+  animation: none;
 }
 
 /* ****************************************************************** ANIMATIONS */
@@ -200,6 +215,10 @@ button:active {
   to {
     height: calc(100% - 1rem);
     opacity: 1;
+    bottom: 0;
+    left: 0;
+    border-left: 1px solid #f4f4f4;
+    border-right: 1px solid #f4f4f4;
   }
 }
 
