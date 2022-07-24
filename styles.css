@@ -2,10 +2,6 @@
   box-sizing: border-box;
 }
 
-html, body {
-  height: 100%;
-}
-
 body {
   display: grid;
   grid-template-columns: 100vw;
@@ -22,6 +18,18 @@ body {
 .header, footer {
   padding: 1rem;
   position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.header {
+  justify-content: flex-start;
+}
+
+.footer {
+  display: flex;
+  align-items: flex-start;
 }
 
 h1 {
@@ -35,11 +43,6 @@ h1 {
   align-items: center;
 }
 
-.footer {
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-}
 
 /* ****************************************************************** BUTTON */
 button {
@@ -119,7 +122,7 @@ button:active {
   font-family: 'Press Start 2P'; 
   font-size: 22px;
   text-align: center;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
 }
 
 .btn_cube:active {
