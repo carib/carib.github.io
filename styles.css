@@ -55,6 +55,7 @@ button {
           user-select: none;
   cursor: pointer;
   word-break: break-word;
+  word-wrap: break-word;
   -webkit-animation: button-text-color 2s infinite linear alternate;
           animation: button-text-color 2s infinite linear alternate;
 }
