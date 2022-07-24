@@ -12,10 +12,7 @@ body {
   width: 100vw;
   margin: 0;
   padding: 0;
-  overflow: hidden;
   position: fixed;
-  top: 0;
-  bottom: 0;
 }
 
 .header, footer {
@@ -54,7 +51,9 @@ button {
       -ms-user-select: none;
           user-select: none;
   cursor: pointer;
+  word-break: break-all;
   word-break: break-word;
+  overflow-wrap: break-word;
   word-wrap: break-word;
   -webkit-animation: button-text-color 2s infinite linear alternate;
           animation: button-text-color 2s infinite linear alternate;
@@ -134,7 +133,6 @@ button:active {
   font-family: 'Press Start 2P'; 
   font-size: 1.3rem;
   text-align: center;
-  word-break: break-word;
 }
 
 .btn_cube:active {
