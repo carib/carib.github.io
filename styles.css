@@ -8,7 +8,7 @@ body {
   grid-template-rows: 20vh auto 20vh;
   font-family: sans-serif;
   height: 100vh;
-  -webkit-height: fill-available;
+  height: -webkit-fill-available;
   width: 100vw;
   margin: 0;
   padding: 0;
@@ -18,18 +18,18 @@ body {
 .header, footer {
   padding: 1rem;
   position: relative;
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
 }
 
 .header {
-  justify-content: flex-start;
+  /* justify-content: flex-start; */
 }
 
 .footer {
   display: flex;
-  align-items: flex-start;
+  justify-content: flex-end;
+  align-items: flex-end;
+  /* display: flex;
+  align-items: flex-start; */
 }
 
 h1 {
@@ -48,7 +48,8 @@ h1 {
 button {
   cursor: pointer;
   word-break: break-word;
-  animation: button-text-color 2s infinite linear alternate;
+  -webkit-animation: button-text-color 2s infinite linear alternate;
+          animation: button-text-color 2s infinite linear alternate;
 }
 
 button.no_click {
@@ -57,7 +58,8 @@ button.no_click {
 
 button:active {
   color: #ff0000;
-  animation: none;
+  -webkit-animation: none;
+          animation: none;
 }
 
 /* ****************************************************************** COUNTDOWN */
@@ -94,8 +96,10 @@ button:active {
 
 .countdown::after {
   content: '5';
-  animation: countdown 5s linear;
-  animation-delay: .5s;
+  -webkit-animation: countdown 5s linear;
+          animation: countdown 5s linear;
+  -webkit-animation-delay: .5s;
+          animation-delay: .5s;
 }
 
 /* ****************************************************************************** SWITCH CLASSES */
@@ -129,7 +133,6 @@ button:active {
   transform: rotateX(40deg) rotatez(26deg) translateZ(-5rem);
   -webkit-transform: rotateX(40deg) rotatez(26deg) translateZ(-5rem);
   transition: transform 0.2s;
-  transition: -webkit-transform 0.2s;
 }
 
 .btn_cube::before,
@@ -183,8 +186,10 @@ button:active {
   border-radius: 1rem;
   border-bottom: 1px solid #f4f4f4;
   box-shadow: 0px 6px 33px -13px #949393, inset 4px -2px 20px -13px #949393;
-  animation: shadow-up 2s ease-in-out, button-text-color 2s infinite linear alternate;
-  animation-delay: 0, .4s;
+  -webkit-animation: shadow-up 2s ease-in-out, button-text-color 2s infinite linear alternate;
+          animation: shadow-up 2s ease-in-out, button-text-color 2s infinite linear alternate;
+  -webkit-animation-delay: 0, .4s;
+          animation-delay: 0, .4s;
   transition: all .2s ease;
 }
 
@@ -197,7 +202,8 @@ button:active {
   height: 100%;
   width: 100%;
   border-radius: 1rem;
-  animation-delay: .5s;
+  -webkit-animation-delay: .5s;
+          animation-delay: .5s;
   /* border-top-left-radius: 0;
   border-top-right-radius: 0; */
 }
@@ -212,10 +218,25 @@ button:active {
   border-radius: 1rem;
   box-shadow: none;
   transition: all .4s ease;
-  animation: none;
+  -webkit-animation: none;
+          animation: none;
 }
 
 /* ****************************************************************** ANIMATIONS */
+@-webkit-keyframes draw-up {
+  from {
+    height: 0;
+    opacity: 0;
+  }
+  to {
+    height: calc(100% - 1rem);
+    opacity: 1;
+    bottom: 0;
+    left: 0;
+    border-left: 1px solid #f4f4f4;
+    border-right: 1px solid #f4f4f4;
+  }
+}
 @keyframes draw-up {
   from {
     height: 0;
@@ -231,6 +252,15 @@ button:active {
   }
 }
 
+@-webkit-keyframes shadow-up {
+  from {
+    box-shadow: -28px 30px 54px -59px #949393;
+  }
+  to {
+    box-shadow: 0px 6px 33px -13px #949393, inset 4px -2px 20px -13px #949393;
+  }
+}
+
 @keyframes shadow-up {
   from {
     box-shadow: -28px 30px 54px -59px #949393;
@@ -240,12 +270,43 @@ button:active {
   }
 }
 
+@-webkit-keyframes button-text-color {
+  from {
+    color: #ff0000;
+  }
+  to {
+    color: #fffbfb;
+  }
+}
+
 @keyframes button-text-color {
   from {
     color: #ff0000;
   }
   to {
     color: #fffbfb;
+  }
+}
+
+@-webkit-keyframes countdown {
+  0% {
+    content: '5';
+  }
+
+  25% {
+    content: '4';
+  }
+  
+  50% {
+    content: '3';
+  }
+  
+  75% {
+    content: '2';
+  }
+  
+  100% {
+    content: '1';
   }
 }
 
