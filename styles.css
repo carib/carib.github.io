@@ -8,7 +8,7 @@ body {
   grid-template-rows: 20vh auto 20vh;
   font-family: sans-serif;
   height: 100vh;
-  height: -webkit-fill-available;
+  min-height: -webkit-fill-available;
   width: 100vw;
   margin: 0;
   padding: 0;
@@ -37,7 +37,7 @@ h1 {
 }
 
 .main {
-  perspective: 900px;
+  /* perspective: 900px; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -175,7 +175,7 @@ button:active {
 /* ****************************************************************** CLOUD */
 .btn_cloud {
   font-family: 'Monoton';
-  font-size: 5rem;
+  font-size: 16vh;
   
   position: relative;
   width: 15rem;
