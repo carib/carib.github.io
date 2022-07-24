@@ -2,15 +2,21 @@
   box-sizing: border-box;
 }
 
+html, body {
+  height: 100%;
+}
+
 body {
   display: grid;
   grid-template-columns: 100vw;
   grid-template-rows: 20vh auto 20vh;
   font-family: sans-serif;
   height: 100vh;
+  -webkit-height: fill-available;
   width: 100vw;
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 
 .header, footer {
