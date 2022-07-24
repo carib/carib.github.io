@@ -13,6 +13,9 @@ body {
   margin: 0;
   padding: 0;
   overflow: hidden;
+  position: fixed;
+  top: 0;
+  bottom: 0;
 }
 
 .header, footer {
@@ -46,6 +49,10 @@ h1 {
 
 /* ****************************************************************** BUTTON */
 button {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   cursor: pointer;
   word-break: break-word;
   -webkit-animation: button-text-color 2s infinite linear alternate;
@@ -122,7 +129,6 @@ button:active {
   justify-content: center;
   align-items: center;
   transition: transform .1s ease-in-out;
-  transition: -webkit-transform .1s ease-in-out;
   
   font-family: 'Press Start 2P'; 
   font-size: 1.3rem;
@@ -134,7 +140,6 @@ button:active {
   transform: rotateX(40deg) rotatez(26deg) translateZ(-5rem);
   -webkit-transform: rotateX(40deg) rotatez(26deg) translateZ(-5rem);
   transition: transform 0.2s;
-  transition: -webkit-transform 0.2s;
 }
 
 .btn_cube::before,
