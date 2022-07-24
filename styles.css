@@ -122,9 +122,10 @@ button:active {
   justify-content: center;
   align-items: center;
   transition: transform .1s ease-in-out;
+  transition: -webkit-transform .1s ease-in-out;
   
   font-family: 'Press Start 2P'; 
-  font-size: 22px;
+  font-size: 1.3rem;
   text-align: center;
   word-break: break-word;
 }
@@ -133,6 +134,7 @@ button:active {
   transform: rotateX(40deg) rotatez(26deg) translateZ(-5rem);
   -webkit-transform: rotateX(40deg) rotatez(26deg) translateZ(-5rem);
   transition: transform 0.2s;
+  transition: -webkit-transform 0.2s;
 }
 
 .btn_cube::before,
@@ -175,7 +177,7 @@ button:active {
 /* ****************************************************************** CLOUD */
 .btn_cloud {
   font-family: 'Monoton';
-  font-size: 16vh;
+  font-size: 5rem;
   
   position: relative;
   width: 15rem;
