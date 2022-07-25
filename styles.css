@@ -118,6 +118,7 @@ button:active {
   appearance: none;
   position: relative;
   width: var(--size);
+  padding: 0;
   margin: 0 auto;
   transform-style: preserve-3d;
   border: 1px solid black;
@@ -181,13 +182,15 @@ button:active {
 /* ****************************************************************** CLOUD */
 .btn_cloud {
   font-family: 'Monoton';
-  font-size: 5rem;
+  font-size: 6rem;
+  line-height: 1;
   
   position: relative;
   width: 15rem;
   height: 15rem;
   background: #fff;
   margin: auto;
+  padding: 0;
   border: 1px solid #f4f4f4;
   border-radius: 1rem;
   border-bottom: 1px solid #f4f4f4;
