@@ -2,7 +2,7 @@
   box-sizing: border-box;
 }
 
-body {
+.main {
   display: grid;
   grid-template-columns: 100vw;
   grid-template-rows: 20vh auto 20vh;
@@ -36,7 +36,7 @@ h1 {
   font-size: clamp(1rem, 4vw, 4rem);
 }
 
-.main {
+.section {
   /* perspective: 900px; */
   display: flex;
   justify-content: center;
