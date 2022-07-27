@@ -1,6 +1,6 @@
 const countdowns = Array.from(document.querySelectorAll('.countdown_div'));
 const btn = document.querySelector('button');
-const btnClassesQueue = ['cube', 'cloud'];
+const btnClassesQueue = ['iso', 'cloud'];
 
 const switchClass = () => {    
     countdowns.map(countdown => countdown.classList.toggle('countdown'));
@@ -21,4 +21,4 @@ const switchClass = () => {
     }, 5000);
 }
 
-btn.addEventListener('mouseup', switchClass);
+btn.addEventListener('click', switchClass);
