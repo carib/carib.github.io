@@ -3,15 +3,13 @@ const btn = document.querySelector('button');
 const btnClassesQueue = ['iso', 'cloud', 'slice'];
 
 const switchClass = () => {    
-    countdowns.map(countdown => countdown.classList.toggle('countdown'));
     btn.classList.toggle('animated');
     btn.classList.toggle('no_click');
     
     setTimeout(() => {
-        countdowns.map(countdown => countdown.classList.toggle('countdown'));
         btn.classList.toggle('animated');
-        
         btn.classList.toggle('no_click');
+        
         btnClassesQueue.push(btnClassesQueue.shift());
         btn.classList.toggle(`btn_${btnClassesQueue[0]}`);
         
@@ -20,7 +18,7 @@ const switchClass = () => {
         } else {
             btn.classList.toggle(`btn_${btnClassesQueue[btnClassesQueue.length - 1]}`);
         }
-    }, 5000);
+    }, 500);
 }
 
 btn.addEventListener('click', switchClass);

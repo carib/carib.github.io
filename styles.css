@@ -75,46 +75,6 @@ button:active {
           animation: none;
 }
 
-/* ****************************************************************** COUNTDOWN */
-.header .countdown_div, 
-.footer .countdown_div {
-  font-family: 'Autour One';
-  font-size: 9vh;
-  position: absolute;
-  text-align: center;
-  z-index: -2;
-  transition: opacity .2s ease-in-out;
-}
-.header .countdown_div {
-  top: 2vh;
-  right: 2vh;
-}
-
-.footer .countdown_div {
-  bottom: 2vh;
-  left: 2vh;
-}
-
-
-.countdown_div::after {
-  content: '';
-  opacity: .2;
-  transition: opacity .5s ease-in;
-  color: #ff0000;
-}
-
-.countdown {
-  z-index: 2;
-}
-
-.countdown::after {
-  content: '5';
-  -webkit-animation: countdown 5s linear;
-          animation: countdown 5s linear;
-  -webkit-animation-delay: .5s;
-          animation-delay: .5s;
-}
-
 /* ****************************************************************************** SWITCH CLASSES */
 /* ****************************************************************** iso */
 .btn_iso {
@@ -206,11 +166,14 @@ button:active {
   border-radius: 14rem;
   border-bottom: 1px solid #f4f4f4;
   box-shadow: 0px 6px 33px -13px #949393, inset 4px -2px 20px -13px #949393;
-  -webkit-animation: shadow-up 2s ease-in-out, button-text-color 2s infinite linear alternate;
-  animation: shadow-up 2s ease-in-out, button-text-color 2s infinite linear alternate;
+  transition: all .2s ease;
+}
+
+.btn_cloud.btn_slice.animated {
+  -webkit-animation: shadow-up 2s ease-in-out;
+  animation: shadow-up 2s ease-in-out;
   -webkit-animation-delay: 0, .4s;
   animation-delay: 0, .4s;
-  transition: all .2s ease;
 }
 
 .btn_cloud::before,
@@ -416,49 +379,5 @@ button:active {
   }
   to {
     color: #fcc8c8;
-  }
-}
-
-@-webkit-keyframes countdown {
-  0% {
-    content: '5';
-  }
-
-  25% {
-    content: '4';
-  }
-  
-  50% {
-    content: '3';
-  }
-  
-  75% {
-    content: '2';
-  }
-  
-  100% {
-    content: '1';
-  }
-}
-
-@keyframes countdown {
-  0% {
-    content: '5';
-  }
-
-  25% {
-    content: '4';
-  }
-  
-  50% {
-    content: '3';
-  }
-  
-  75% {
-    content: '2';
-  }
-  
-  100% {
-    content: '1';
   }
 }
