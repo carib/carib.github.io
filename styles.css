@@ -217,7 +217,8 @@ button:active {
 }
 
 .btn_slice.animated {
-  animation: widen 1s ease-in;
+  -webkit-animation: widen 1s ease-in;
+          animation: widen 1s ease-in;
 }
 
 .btn_slice.animated::before {
@@ -229,7 +230,8 @@ button:active {
   top: 0;
   border-radius: 0rem 1rem;
   left: 0;
-  animation: slice-down 1s cubic-bezier(0.42, 0, 0.58, 1.86), drop-radius-fade-in 2s linear;
+  -webkit-animation: slice-down 1s cubic-bezier(0.42, 0, 0.58, 1.86), drop-radius-fade-in 2s linear;
+          animation: slice-down 1s cubic-bezier(0.42, 0, 0.58, 1.86), drop-radius-fade-in 2s linear;
 }
 
 .btn_slice:hover {
@@ -244,6 +246,15 @@ button:active {
 }
 
 /* ****************************************************************** ANIMATIONS */
+@-webkit-keyframes drop-radius-fade-in {
+  from {
+    transform: skewX(10deg);
+    border-radius: 0rem 1rem;
+  }
+  to {
+    border-radius: 0;
+  }
+}
 @keyframes drop-radius-fade-in {
   from {
     transform: skewX(10deg);
@@ -251,6 +262,28 @@ button:active {
   }
   to {
     border-radius: 0;
+  }
+}
+
+@-webkit-keyframes widen {
+  0% {
+    color: transparent;
+    width: 0;
+    opacity: 0;
+    transform: translateX(-3rem) skewX(10deg);
+    border-right: none;
+  }
+  20% {
+    border-right: none;
+    transform: translateX(-3rem) skewX(10deg);
+    border-radius: 0rem 1rem;;
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    width: 6rem;
+    color: transparent;
+    border-right: none;
   }
 }
 
@@ -273,6 +306,38 @@ button:active {
     width: 6rem;
     color: transparent;
     border-right: none;
+  }
+}
+
+@-webkit-keyframes slice-down {
+  0% {
+    top: -10rem;
+    box-shadow: 1rem -10rem 0rem 0rem transparent, 2rem -10rem 0rem 0rem transparent, 3rem -10rem 0rem 0rem transparent, 4rem -10rem 0rem 0rem transparent, 5rem -10rem 0rem 0rem transparent;
+  }
+  16.6667% {
+    top: 0;
+    box-shadow: 1rem -10rem 0rem 0rem #ff0000, 2rem -10rem 0rem 0rem transparent, 3rem -10rem 0rem 0rem transparent, 4rem -10rem 0rem 0rem transparent, 5rem -10rem 0rem 0rem transparent;
+    background-color: transparent; 
+  }
+  33.3333% {
+    
+    box-shadow: 1rem 0rem 0rem 0rem #ff0000, 2rem -10rem 0rem 0rem #ff0000, 3rem -10rem 0rem 0rem transparent, 4rem -10rem 0rem 0rem transparent, 5rem -10rem 0rem 0rem transparent;
+  }
+  50% {
+    
+    box-shadow: 1rem 0rem 0rem 0rem transparent, 2rem 0rem 0rem 0rem #ff0000, 3rem -10rem 0rem 0rem #ff0000, 4rem -10rem 0rem 0rem transparent, 5rem -10rem 0rem 0rem transparent;
+  }
+  66.6667% {
+    
+    box-shadow: 1rem 0rem 0rem 0rem transparent, 2rem 0rem 0rem 0rem transparent, 3rem 0rem 0rem 0rem #ff0000, 4rem -10rem 0rem 0rem #ff0000, 5rem -10rem 0rem 0rem transparent;
+  }
+  83.3333% {
+    
+    box-shadow: 1rem 0rem 0rem 0rem transparent, 2rem 0rem 0rem 0rem transparent, 3rem 0rem 0rem 0rem transparent, 4rem 0rem 0rem 0rem #ff0000, 5rem -10rem 0rem 0rem #ff0000;
+  }
+  100% {
+    background-color: transparent;
+    box-shadow: 1rem 0rem 0rem 0rem transparent, 2rem 0rem 0rem 0rem transparent, 3rem 0rem 0rem 0rem transparent, 4rem 0rem 0rem 0rem transparent, 5rem 0rem 0rem 0rem #ff0000;
   }
 }
 
@@ -305,6 +370,15 @@ button:active {
   100% {
     background-color: transparent;
     box-shadow: 1rem 0rem 0rem 0rem transparent, 2rem 0rem 0rem 0rem transparent, 3rem 0rem 0rem 0rem transparent, 4rem 0rem 0rem 0rem transparent, 5rem 0rem 0rem 0rem #ff0000;
+  }
+}
+
+@-webkit-keyframes iso-shadow-out {
+  from {
+    box-shadow: 1.7rem 14rem 0px 0rem white, 1.8rem 8.8rem 0px 0rem #474747
+  }
+  to {
+    box-shadow: 0rem 5.2rem 0px 0rem white, 0rem 5rem 0px 0rem #474747;
   }
 }
 
