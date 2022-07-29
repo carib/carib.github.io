@@ -240,6 +240,34 @@ button:active {
           animation: none;
 }
 
+/* ****************************************************************** SLICE */
+.btn_slice {
+  position: relative;
+  appearance: none;
+  background: transparent;
+  color: transparent;
+  animation: none;
+  border: 1px solid salmon;
+}
+
+.btn_slice::before {
+  content: '';
+  width: 0.5rem;
+  height: 1.1rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-shadow:  
+  
+  3.5rem 0rem 0rem 0rem rgb(250, 197, 73), 
+  3rem 0rem 0rem 0rem rgb(0, 130, 126), 
+  2.5rem 0rem 0rem 0rem indigo, 
+  2rem 0rem 0rem 0rem goldenrod, 
+  1.5rem 0rem 0rem 0rem tomato,  
+  1rem 0rem 0rem 0rem cornflowerblue,  
+  .5rem 0rem 0rem 0rem salmon;
+}
+
 /* ****************************************************************** ANIMATIONS */
 @keyframes iso-shadow-out {
   from {
