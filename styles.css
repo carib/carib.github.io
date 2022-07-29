@@ -243,32 +243,61 @@ button:active {
 /* ****************************************************************** SLICE */
 .btn_slice {
   position: relative;
+  width: 6rem;
+  height: 3.5rem;
   appearance: none;
   background: transparent;
   color: transparent;
   animation: none;
-  border: 1px solid salmon;
+  border: none;
+  outline: 1px solid red
 }
 
 .btn_slice::before {
   content: '';
-  width: 0.5rem;
-  height: 1.1rem;
+  width: 1rem;
+  height: 100%;
   position: absolute;
+  background-color: salmon;
   top: 0;
   left: 0;
+  animation: slice-down 1s ease-in-out;
+  animation: slice-down 1s ease-in-out;
   box-shadow:  
-  
-  3.5rem 0rem 0rem 0rem rgb(250, 197, 73), 
-  3rem 0rem 0rem 0rem rgb(0, 130, 126), 
-  2.5rem 0rem 0rem 0rem indigo, 
-  2rem 0rem 0rem 0rem goldenrod, 
-  1.5rem 0rem 0rem 0rem tomato,  
-  1rem 0rem 0rem 0rem cornflowerblue,  
-  .5rem 0rem 0rem 0rem salmon;
+  5rem 0rem 0rem 0rem salmon, 
+  4rem 0rem 0rem 0rem salmon, 
+  3rem 0rem 0rem 0rem salmon,  
+  2rem 0rem 0rem 0rem salmon,  
+  1rem 0rem 0rem 0rem salmon;
 }
 
 /* ****************************************************************** ANIMATIONS */
+@keyframes slice-down {
+  0% {
+    transform: translateY(-10rem);
+    box-shadow: 1rem -10rem 0rem 0rem transparent, 2rem -10rem 0rem 0rem transparent, 3rem -10rem 0rem 0rem transparent, 4rem -10rem 0rem 0rem transparent, 5rem -10rem 0rem 0rem transparent;
+  }
+  16.6667% {
+    transform: translateY(0rem);
+    box-shadow: 1rem -10rem 0rem 0rem salmon, 2rem -10rem 0rem 0rem transparent, 3rem -10rem 0rem 0rem transparent, 4rem -10rem 0rem 0rem transparent, 5rem -10rem 0rem 0rem transparent;
+  }
+  33.3333% {
+    box-shadow: 1rem 0rem 0rem 0rem salmon, 2rem -10rem 0rem 0rem salmon, 3rem -10rem 0rem 0rem transparent, 4rem -10rem 0rem 0rem transparent, 5rem -10rem 0rem 0rem transparent;
+  }
+  50% {
+    box-shadow: 1rem 0rem 0rem 0rem salmon, 2rem 0rem 0rem 0rem salmon, 3rem -10rem 0rem 0rem transparent, 4rem -10rem 0rem 0rem transparent, 5rem -10rem 0rem 0rem transparent;
+  }
+  66.6667% {
+    box-shadow: 1rem 0rem 0rem 0rem salmon, 2rem 0rem 0rem 0rem salmon, 3rem 0rem 0rem 0rem salmon, 4rem -10rem 0rem 0rem transparent, 5rem -10rem 0rem 0rem transparent;
+  }
+  83.3333% {
+    box-shadow: 1rem 0rem 0rem 0rem salmon, 2rem 0rem 0rem 0rem salmon, 3rem 0rem 0rem 0rem salmon, 4rem 0rem 0rem 0rem salmon, 5rem -10rem 0rem 0rem transparent;
+  }
+  100% {
+    box-shadow: 1rem 0rem 0rem 0rem salmon, 2rem 0rem 0rem 0rem salmon, 3rem 0rem 0rem 0rem salmon, 4rem 0rem 0rem 0rem salmon, 5rem 0rem 0rem 0rem salmon;
+  }
+}
+
 @keyframes iso-shadow-out {
   from {
     box-shadow: 1.7rem 14rem 0px 0rem white, 1.8rem 8.8rem 0px 0rem #474747
