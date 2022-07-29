@@ -1,13 +1,15 @@
 const countdowns = Array.from(document.querySelectorAll('.countdown_div'));
 const btn = document.querySelector('button');
-const btnClassesQueue = ['iso', 'cloud'];
+const btnClassesQueue = ['iso', 'cloud', 'slice'];
 
 const switchClass = () => {    
     countdowns.map(countdown => countdown.classList.toggle('countdown'));
+    btn.classList.toggle('animated');
     btn.classList.toggle('no_click');
     
     setTimeout(() => {
         countdowns.map(countdown => countdown.classList.toggle('countdown'));
+        btn.classList.toggle('animated');
         
         btn.classList.toggle('no_click');
         btnClassesQueue.push(btnClassesQueue.shift());

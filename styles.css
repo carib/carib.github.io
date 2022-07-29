@@ -244,57 +244,104 @@ button:active {
 .btn_slice {
   position: relative;
   width: 6rem;
-  height: 3.5rem;
-  appearance: none;
-  background: transparent;
-  color: transparent;
-  animation: none;
-  border: none;
-  outline: 1px solid red
+  height: 3rem;
+  white-space: nowrap;
+  background: white;
+  border: 1px solid #ff0000;
+  color: #ff0000;
+  border-radius: .3rem;
+  transition: background .2s ease;
 }
 
-.btn_slice::before {
+.btn_slice.animated {
+  animation: widen 1s ease-in;
+}
+
+.btn_slice.animated::before {
   content: '';
   width: 1rem;
   height: 100%;
   position: absolute;
-  background-color: salmon;
+  background-color: transparent;
   top: 0;
+  border-radius: 0rem 1rem;
   left: 0;
-  animation: slice-down 1s ease-in-out;
-  animation: slice-down 1s ease-in-out;
-  box-shadow:  
-  5rem 0rem 0rem 0rem salmon, 
-  4rem 0rem 0rem 0rem salmon, 
-  3rem 0rem 0rem 0rem salmon,  
-  2rem 0rem 0rem 0rem salmon,  
-  1rem 0rem 0rem 0rem salmon;
+  animation: slice-down 1s cubic-bezier(0.42, 0, 0.58, 1.86), drop-radius-fade-in 2s linear;
+}
+
+.btn_slice:hover {
+  background: #ff00002f;
+  transition: background .2s ease;
+}
+
+.btn_slice:active {
+  background: #ff000088;
+  color: white;
+  transition: background .2s ease;
 }
 
 /* ****************************************************************** ANIMATIONS */
+@keyframes drop-radius-fade-in {
+  from {
+    transform: skewX(10deg);
+    border-radius: 0rem 1rem;
+  }
+  to {
+    border-radius: 0;
+  }
+}
+
+@keyframes widen {
+  0% {
+    color: transparent;
+    width: 0;
+    opacity: 0;
+    transform: translateX(-3rem) skewX(10deg);
+    border-right: none;
+  }
+  20% {
+    border-right: none;
+    transform: translateX(-3rem) skewX(10deg);
+    border-radius: 0rem 1rem;;
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    width: 6rem;
+    color: transparent;
+    border-right: none;
+  }
+}
+
 @keyframes slice-down {
   0% {
-    transform: translateY(-10rem);
+    top: -10rem;
     box-shadow: 1rem -10rem 0rem 0rem transparent, 2rem -10rem 0rem 0rem transparent, 3rem -10rem 0rem 0rem transparent, 4rem -10rem 0rem 0rem transparent, 5rem -10rem 0rem 0rem transparent;
   }
   16.6667% {
-    transform: translateY(0rem);
-    box-shadow: 1rem -10rem 0rem 0rem salmon, 2rem -10rem 0rem 0rem transparent, 3rem -10rem 0rem 0rem transparent, 4rem -10rem 0rem 0rem transparent, 5rem -10rem 0rem 0rem transparent;
+    top: 0;
+    box-shadow: 1rem -10rem 0rem 0rem #ff0000, 2rem -10rem 0rem 0rem transparent, 3rem -10rem 0rem 0rem transparent, 4rem -10rem 0rem 0rem transparent, 5rem -10rem 0rem 0rem transparent;
+    background-color: transparent; 
   }
   33.3333% {
-    box-shadow: 1rem 0rem 0rem 0rem salmon, 2rem -10rem 0rem 0rem salmon, 3rem -10rem 0rem 0rem transparent, 4rem -10rem 0rem 0rem transparent, 5rem -10rem 0rem 0rem transparent;
+    
+    box-shadow: 1rem 0rem 0rem 0rem #ff0000, 2rem -10rem 0rem 0rem #ff0000, 3rem -10rem 0rem 0rem transparent, 4rem -10rem 0rem 0rem transparent, 5rem -10rem 0rem 0rem transparent;
   }
   50% {
-    box-shadow: 1rem 0rem 0rem 0rem salmon, 2rem 0rem 0rem 0rem salmon, 3rem -10rem 0rem 0rem transparent, 4rem -10rem 0rem 0rem transparent, 5rem -10rem 0rem 0rem transparent;
+    
+    box-shadow: 1rem 0rem 0rem 0rem transparent, 2rem 0rem 0rem 0rem #ff0000, 3rem -10rem 0rem 0rem #ff0000, 4rem -10rem 0rem 0rem transparent, 5rem -10rem 0rem 0rem transparent;
   }
   66.6667% {
-    box-shadow: 1rem 0rem 0rem 0rem salmon, 2rem 0rem 0rem 0rem salmon, 3rem 0rem 0rem 0rem salmon, 4rem -10rem 0rem 0rem transparent, 5rem -10rem 0rem 0rem transparent;
+    
+    box-shadow: 1rem 0rem 0rem 0rem transparent, 2rem 0rem 0rem 0rem transparent, 3rem 0rem 0rem 0rem #ff0000, 4rem -10rem 0rem 0rem #ff0000, 5rem -10rem 0rem 0rem transparent;
   }
   83.3333% {
-    box-shadow: 1rem 0rem 0rem 0rem salmon, 2rem 0rem 0rem 0rem salmon, 3rem 0rem 0rem 0rem salmon, 4rem 0rem 0rem 0rem salmon, 5rem -10rem 0rem 0rem transparent;
+    
+    box-shadow: 1rem 0rem 0rem 0rem transparent, 2rem 0rem 0rem 0rem transparent, 3rem 0rem 0rem 0rem transparent, 4rem 0rem 0rem 0rem #ff0000, 5rem -10rem 0rem 0rem #ff0000;
   }
   100% {
-    box-shadow: 1rem 0rem 0rem 0rem salmon, 2rem 0rem 0rem 0rem salmon, 3rem 0rem 0rem 0rem salmon, 4rem 0rem 0rem 0rem salmon, 5rem 0rem 0rem 0rem salmon;
+    background-color: transparent;
+    box-shadow: 1rem 0rem 0rem 0rem transparent, 2rem 0rem 0rem 0rem transparent, 3rem 0rem 0rem 0rem transparent, 4rem 0rem 0rem 0rem transparent, 5rem 0rem 0rem 0rem #ff0000;
   }
 }
 
@@ -307,7 +354,7 @@ button:active {
   }
 }
 
-@-webkit-keyframes draw-up {
+@-webkit-keyframes draw-right {
   from {
     height: 0;
     opacity: 0;
@@ -321,9 +368,9 @@ button:active {
     border-right: 1px solid #f4f4f4;
   }
 }
-@keyframes draw-up {
+@keyframes draw-right {
   from {
-    height: 0;
+    width: 0;
     opacity: 0;
   }
   to {
